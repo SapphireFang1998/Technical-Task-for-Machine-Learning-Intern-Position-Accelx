@@ -6,6 +6,14 @@ A technical task (Dog vs Cat Classification) for "Machine Learning Intern" posit
 
 The dataset used for training and evaluation is "Cats-vs-Dogs Datasett" available on Kaggle. You can find the dataset <a href="https://www.kaggle.com/datasets/shaunthesheep/microsoft-catsvsdogs-dataset">here</a>.
 
+## Conversion and Cleanup of Dataset
+In the dataset, there are some redundant and corrupt files. To avoid these, I have converted all Images to a consistent format. This ensures:
+
+* The image is a valid JPEG
+* It uses RGB (3 channels), which TensorFlow expects
+* Any format issues (e.g., .png with alpha, .bmp, or weird headers) are corrected
+* Removes subtle corruption or unsupported formats
+
 ## Proposed Methodology
 Here, I have used 4 convolutional block. In each block, there are 2 Conv2D layer, 2 BatchNormalization layer, 2 MaxPooling2D Layer and one Dropout layer. After using Flatten layer to converts the multidimensional feature maps into a 1D vector to make it suitable for dense layers, there are 2 Dense, BatchNormalization, and Dropout layers each. Lastly, a dense layer used to activate softmax activation function which assigns probabilities and classifies the input data into 2 classes.
 
